@@ -6,7 +6,7 @@ const Post = require('./models/post')
 
 const app = express()
 
-mongoose.connect("mongodb+srv://jayesh:patil@cluster0-7ectn.gcp.mongodb.net/node-angular?retryWrites=true&w=majority")
+mongoose.connect("<your mondodb connection string>")
   .then(() => {
     console.log('Connected to db')
   }).catch(() => {
