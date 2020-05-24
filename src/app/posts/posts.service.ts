@@ -55,7 +55,7 @@ export class PostsService{
   }
 
   updatePost(id: string, title: string, content: string){
-    const post: Post = {id: null, title: title, content: content}
+    const post: Post = {id: id, title: title, content: content}
     this.http.put('http://localhost:3000/api/posts/' + id, post)
       .subscribe(response => {
         const updatedPosts = [...this.posts]
