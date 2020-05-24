@@ -1,7 +1,8 @@
 <!-- <textarea rows="6" [value]="newPost" #postInput></textarea> -->
 <!-- same as above but using two way binding -->
 <mat-card>
-  <form (submit) ="onSavePost(postForm)" #postForm="ngForm">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit) ="onSavePost(postForm)" #postForm="ngForm" *ngIf="!isLoading">
   <mat-form-field>
     <input
       matInput type="text"

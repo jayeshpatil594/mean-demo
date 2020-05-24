@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators'
 
 import { Post } from './post.model'
 import { PortalHostDirective } from '@angular/cdk/portal'
+import { Router } from '@angular/router'
 
 @Injectable({providedIn: 'root'})
 
@@ -13,7 +14,7 @@ export class PostsService{
   //event emitter
   private postsUpdated = new Subject<Post[]>()
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private rourter: Router){}
 
   getPosts(){
     //return a new cloned array
@@ -51,6 +52,7 @@ export class PostsService{
         post.id = id
         this.posts.push(post)
         this.postsUpdated.next([...this.posts])
+        this.rourter.navigate(['/'])
       })
   }
 
@@ -63,6 +65,7 @@ export class PostsService{
         updatedPosts[oldPostIndex] = post
         this.posts = updatedPosts
         this.postsUpdated.next([...this.posts])
+        this.rourter.navigate(['/'])
       })
   }
 
